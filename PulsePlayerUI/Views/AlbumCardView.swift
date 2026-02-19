@@ -11,6 +11,7 @@ import SwiftUI
 struct AlbumCardView: View {
     let item: MusicItem
     let size: CGFloat
+    var onTap: (() -> Void)? = nil
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -36,5 +37,8 @@ struct AlbumCardView: View {
                 .lineLimit(1)
         }
         .frame(width: size)
+        .onTapGesture {
+            onTap?()
+        }
     }
 }
